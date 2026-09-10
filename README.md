@@ -76,29 +76,4 @@ The Docker environment uses **PostgreSQL** for the database, **Gunicorn** for th
 - `GET /api/v1/cases/{case_id}`: Retrieve details for a specific case.
 - `GET /api/v1/reports/{case_id}/forensic`: Generate a forensic text report for a case.
 
-## Architecture
 
-```
-email-threat-platform/
-│
-├── backend/                  # FastAPI Application
-│   ├── app/
-│   │   ├── main.py           # API Entrypoint
-│   │   ├── database.py       # SQLite connection
-│   │   ├── models/           # SQLAlchemy DB Models
-│   │   ├── schemas/          # Pydantic validation schemas
-│   │   ├── routers/          # API Routers
-│   │   └── services/         # Core logic (AI, Geo, Auth, Parsers)
-│   └── models/               # Pickled ML models (generated)
-│
-├── frontend/                 # React Application
-│   ├── src/
-│   │   ├── index.css         # Global Glassmorphism Styles
-│   │   ├── App.tsx           # Router Configuration
-│   │   └── pages/            # Dashboard, Upload, Case Details
-│   └── package.json
-│
-├── data/                     # Threat dataset CSV
-├── scripts/                  # Training and seeding scripts
-└── README.md
-```
